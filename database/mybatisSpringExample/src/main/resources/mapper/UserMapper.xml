@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--对应UserMapper.java所在的包名-->
+<mapper namespace="org.v.mybatisspringexample.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="org.v.mybatisspringexample.User">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="age" property="age" jdbcType="INTEGER"/>
+        <result column="gender" property="gender" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="getUserById" resultMap="BaseResultMap">
+        SELECT * FROM user WHERE id = ${id}
+    </select>
+</mapper>
